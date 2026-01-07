@@ -1,70 +1,45 @@
-# AI Cultural Journalist: AAVE Discourse Analysis Platform
+# Flattened English: Measuring Linguistic Labor in AI-Mediated Knowledge Work
 
-An autonomous platform tracking and analyzing academic and news articles that discuss African American Vernacular English (AAVE) through sentiment analysis and content classification.
+## Research Question
+How do AI-mediated platforms impose uneven linguistic labor on users employing non-standard English varieties in digital work contexts?
 
-## Project Vision
+## Core Contribution
+A quantitative, platform-level audit of how search engines, social media algorithms, and LLMs enforce professional linguistic norms, shifting the burden of standardization onto global and racialized workers.
 
-This autonomous application monitors the discourse surrounding African American Vernacular English in academic publications and news media. By collecting articles that discuss AAVE and applying sentiment analysis, we provide data-driven insights into how Black language is portrayed, studied, and discussed in different contexts. The platform reveals trends in academic recognition, public discourse, and sentiment towards AAVE over time.
+## Architecture (GCP & Terraform)
 
-## Core Capabilities
+This project follows the **Professional Cloud Architect (PCA)** domain standards using a serverless, event-driven architecture.
 
-- **Automated Article Collection**: Collects articles and publications that discuss AAVE from academic and news sources daily
-- **Sentiment Analysis**: Analyzes the emotional tone and attitudes expressed in discourse about AAVE
-- **Academic Context Analysis**: Examines how AAVE is studied, cited, and discussed in scholarly contexts
-- **Discourse Tracking**: Categorizes and monitors different types of discussions about AAVE
-- **Trend Visualization**: Provides data visualizations of changing discourse patterns over time
+### Components
 
-## Autonomous Architecture
+1.  **Ingestion (Cloud Run Jobs):**
+    *   **TikTok Scraper:** Collects video captions and comments to analyze AAVE usage and algorithmic suppression.
+    *   **Semantic Scholar:** Fetches academic papers to track "linguistic drift" in formal research.
+    *   *Why Cloud Run Jobs?* Better suitability for long-running scraping tasks compared to Cloud Functions.
 
-The platform operates on an autonomous cycle:
+2.  **Storage (BigQuery):**
+    *   Centralized analytical warehouse for all textual data.
+    *   **BigQuery ML:** Used for initial regression analysis and drift detection directly within the warehouse.
 
-1. **Automated Data Collection**: The system periodically collects articles mentioning AAVE from news and academic APIs
-2. **Content Classification**: Articles are categorized by topic, approach, and context
-3. **Sentiment Analysis**: The system analyzes emotional tone and attitude toward AAVE in the content
-4. **Academic Relationship Mapping**: For scholarly articles, citation patterns and academic context are tracked
-5. **Results Storage and Tracking**: Analysis results are stored for monitoring changes over time
-6. **Dashboard Updates**: Visualizations update automatically to show the latest discourse trends
+3.  **Analysis (Vertex AI):**
+    *   **Vertex AI Pipelines:** Orchestrates the NLP "countercoding" experiments and reproducibility workflows.
+    *   **Workbench:** For interactive data exploration.
 
-## Content Analysis Categories
+4.  **Frontend (Next.js):**
+    *   A minimalist dashboard to visualize the "Linguistic Labor Index" and platform audit results.
 
-The platform analyzes how AAVE is discussed through multiple lenses:
+5.  **Infrastructure:**
+    *   Managed entirely via **Terraform** for reproducibility and security (IAM Least Privilege).
 
-- Educational context discussions
-- Linguistic research papers
-- Cultural recognition articles
-- Social commentary
-- Historical documentation
+## Project Structure
 
-## Technology Stack
-
-- **Frontend**: React with TypeScript, Chart.js for data visualization
-- **Backend**: Node.js/Express server
-- **Data Sources**: 
-  - News API for current articles
-  - Google Scholar data via Node.js scholarly packages
-- **Analysis**: 
-  - Natural Language Processing for topic classification
-  - Sentiment analysis algorithms
-  - Citation pattern tracking
-
-## Research Foundation
-
-This project builds upon research in linguistics, media studies, and sentiment analysis to examine how AAVE is discussed in institutional contexts:
-
-- Studies on media representation of linguistic diversity
-- Research on academic discourse and citation patterns
-- Sentiment analysis methodologies applied to cultural discourse
-
-## Development
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Set up API keys in `.env` file
-4. Start the Python service: `npm run start-python-api`
-5. Start the Node.js server: `npm run server`
-6. Start the React client: `npm start`
-7. Or use `npm run start-all` to launch everything
-
-## Contributing
-
-Contributions that enhance sentiment analysis, expand content classification, or improve data visualization are welcome.
+```
+.
+├── infrastructure/    # Terraform configuration
+├── src/
+│   ├── ingestion/     # Python scrapers (TikTok, Scholar)
+│   ├── analysis/      # Vertex AI pipelines & BigQuery SQL
+│   └── web/           # Next.js Dashboard
+├── archive/           # Legacy v1 application
+└── README.md
+```
