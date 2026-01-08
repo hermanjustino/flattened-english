@@ -17,9 +17,10 @@ import {
   Activity, 
   Globe, 
   Layers, 
-  ShieldAlert,
-  Search,
-  MessageSquare
+  ShieldAlert, 
+  ArrowRight,
+  GitBranch,
+  Scale
 } from 'lucide-react';
 
 const mockData = [
@@ -39,167 +40,161 @@ const driftData = [
   { month: 'Jun', drift: 58 },
 ];
 
-export default function Dashboard() {
+export default function LandingPage() {
   return (
-    <main className="min-h-screen p-8 md:p-16 max-w-7xl mx-auto space-y-12">
-      {/* Header */}
-      <header className="space-y-4">
+    <main className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f]">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl"
         >
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-apple-gray-700">
+          <span className="text-sm font-semibold tracking-wider text-blue-600 uppercase mb-4 block">
+            Project AI Journalist 2.0
+          </span>
+          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-[#1d1d1f] leading-tight mb-6">
             Flattened English
           </h1>
-          <p className="text-xl text-apple-gray-400 mt-2 max-w-2xl font-light">
-            Measuring Linguistic Labor in AI-Mediated Knowledge Work
+          <p className="text-2xl md:text-3xl text-[#86868b] font-light leading-relaxed max-w-3xl">
+            Measuring linguistic labor in AI-mediated knowledge work.
           </p>
         </motion.div>
-      </header>
+      </section>
 
-      {/* Metric Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {[
-          { label: 'Platform Audit Score', value: '62/100', icon: ShieldAlert, color: 'text-orange-500' },
-          { label: 'Avg. Linguistic Labor', value: '+42%', icon: Activity, color: 'text-blue-500' },
-          { label: 'Domains Tracked', value: '12', icon: Globe, color: 'text-purple-500' },
-          { label: 'Inference Bias', value: 'High', icon: Layers, color: 'text-red-500' },
-        ].map((metric, i) => (
-          <motion.div
-            key={metric.label}
+      {/* Narrative Section */}
+      <section className="px-6 md:px-12 max-w-7xl mx-auto mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            className="glass p-6 rounded-3xl card-shadow"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="md:col-span-8 space-y-8"
           >
-            <div className="flex justify-between items-start">
-              <div className={`p-2 rounded-2xl bg-white/50 ${metric.color}`}>
-                <metric.icon size={20} />
+            <p className="text-xl md:text-2xl font-light leading-relaxed text-[#1d1d1f]">
+              LLMs impose a flattened, prestige English that creates unequal linguistic labor costs 
+              across global workers who participate in digital knowledge economies.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+              <div className="space-y-4">
+                <Globe className="w-8 h-8 text-blue-500" />
+                <h3 className="text-lg font-semibold">Global Labor Currency</h3>
+                <p className="text-[#86868b] leading-relaxed">
+                  This is not about race alone, it is about whose English is treated as default 
+                  labor currency in AI-mediated work.
+                </p>
               </div>
-            </div>
-            <div className="mt-4">
-              <p className="text-sm font-medium text-apple-gray-400">{metric.label}</p>
-              <p className="text-2xl font-semibold text-apple-gray-700 mt-1">{metric.value}</p>
+              <div className="space-y-4">
+                <Scale className="w-8 h-8 text-purple-500" />
+                <h3 className="text-lg font-semibold">Asymmetric Compliance</h3>
+                <p className="text-[#86868b] leading-relaxed">
+                  LLMs impose asymmetric compliance costs, shifting the burden of standardization 
+                  onto non-native and dialect speakers.
+                </p>
+              </div>
             </div>
           </motion.div>
-        ))}
-      </div>
-
-      {/* Main Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="glass p-8 rounded-[2rem] card-shadow min-h-[400px]"
-        >
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xl font-semibold text-apple-gray-700">Linguistic Labor Index</h3>
-            <span className="text-xs font-medium px-3 py-1 bg-apple-gray-100 rounded-full text-apple-gray-500">
-              By Variety
-            </span>
-          </div>
-          <div className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={mockData}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                <XAxis 
-                  dataKey="name" 
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#86868b', fontSize: 12 }} 
-                />
-                <YAxis hide />
-                <Tooltip 
-                  cursor={{ fill: 'transparent' }}
-                  contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)' }}
-                />
-                <Bar 
-                  dataKey="labor" 
-                  fill="#1d1d1f" 
-                  radius={[10, 10, 10, 10]} 
-                  barSize={40} 
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="glass p-8 rounded-[2rem] card-shadow min-h-[400px]"
-        >
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xl font-semibold text-apple-gray-700">Linguistic Drift over Time</h3>
-            <span className="text-xs font-medium px-3 py-1 bg-blue-50 text-blue-500 rounded-full">
-              Standardization Pressure
-            </span>
-          </div>
-          <div className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={driftData}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                <XAxis 
-                  dataKey="month" 
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#86868b', fontSize: 12 }} 
-                />
-                <YAxis hide />
-                <Tooltip 
-                  contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)' }}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="drift" 
-                  stroke="#0071e3" 
-                  strokeWidth={4} 
-                  dot={false} 
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Feed / Recent Audits */}
-      <section className="space-y-6 pb-20">
-        <h2 className="text-2xl font-semibold text-apple-gray-700 flex items-center gap-2">
-          <Activity size={24} className="text-apple-gray-400" />
-          Live Audit Feed
-        </h2>
-        <div className="space-y-4">
-          {[
-            { platform: 'TikTok Search', topic: 'AAVE Expression', status: 'Suppressed', icon: Search },
-            { platform: 'Semantic Scholar', topic: 'Academic Standardization', status: 'High Drift', icon: Globe },
-            { platform: 'GPT-4o', topic: 'Professional Norms', status: 'Enforced', icon: MessageSquare },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.1 + 0.5 }}
-              className="glass p-5 rounded-2xl flex items-center justify-between hover:bg-white/80 transition-colors cursor-pointer"
-            >
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-apple-gray-50 rounded-xl text-apple-gray-500">
-                  <item.icon size={20} />
-                </div>
-                <div>
-                  <p className="font-medium text-apple-gray-700">{item.platform}</p>
-                  <p className="text-sm text-apple-gray-400">{item.topic}</p>
-                </div>
+          
+          {/* Sidebar / Extension Note */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="md:col-span-4"
+          >
+            <div className="bg-white/50 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <GitBranch className="text-gray-400" size={20} />
+                <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Evolution</span>
               </div>
-              <div className="text-right">
-                <span className="text-xs font-semibold px-3 py-1 bg-apple-gray-100 rounded-full text-apple-gray-600">
-                  {item.status}
-                </span>
+              <p className="text-gray-600 mb-6">
+                Building on last year's <strong>AI Journalist</strong> project, this research pivots from 
+                content generation to <em>content auditing</em>. We are no longer just asking what AI can write, 
+                but how it shapes the language of those who use it.
+              </p>
+              <div className="flex items-center text-blue-600 font-medium cursor-pointer hover:underline">
+                View Legacy Archive <ArrowRight size={16} className="ml-2" />
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Research Core */}
+      <section className="bg-[#f5f5f7] py-24 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          >
+            <div>
+              <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3">
+                <Activity className="text-orange-500" />
+                Research Question
+              </h2>
+              <p className="text-2xl font-light leading-relaxed text-gray-800">
+                "How do AI-mediated platforms impose uneven linguistic labor on users employing 
+                non-standard English varieties in digital work contexts?"
+              </p>
+            </div>
+            <div className="h-[300px] w-full bg-white p-6 rounded-3xl shadow-sm">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={mockData}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#86868b', fontSize: 10 }} />
+                  <YAxis hide />
+                  <Tooltip contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)' }} />
+                  <Bar dataKey="labor" fill="#1d1d1f" radius={[6, 6, 6, 6]} barSize={40} />
+                </BarChart>
+              </ResponsiveContainer>
+              <p className="text-center text-xs text-gray-400 mt-4">Projected Labor Cost Disparity</p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          >
+            <div className="order-2 md:order-1 h-[300px] w-full bg-white p-6 rounded-3xl shadow-sm">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={driftData}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                  <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: '#86868b', fontSize: 10 }} />
+                  <YAxis hide />
+                  <Tooltip contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)' }} />
+                  <Line type="monotone" dataKey="drift" stroke="#0071e3" strokeWidth={4} dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
+              <p className="text-center text-xs text-gray-400 mt-4">Linguistic Standardization Over Time</p>
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3">
+                <Layers className="text-blue-500" />
+                Core Contribution
+              </h2>
+              <p className="text-xl font-light leading-relaxed text-gray-600 mb-6">
+                A quantitative, platform-level audit of how search engines, social media algorithms, 
+                and LLMs enforce professional linguistic norms.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <ShieldAlert className="w-5 h-5 text-gray-400 mt-1" />
+                  <span className="text-gray-600">Shifting the burden of standardization onto global and racialized workers.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Activity className="w-5 h-5 text-gray-400 mt-1" />
+                  <span className="text-gray-600">Measuring the "compliance cost" of non-standard English in a post-LLM ecosystem.</span>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
         </div>
       </section>
     </main>

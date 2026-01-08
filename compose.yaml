@@ -1,0 +1,25 @@
+services:
+  web:
+    # Use the existing Dockerfile, but stop at the 'deps' stage
+    # This gives us a lightweight image with just dependencies installed
+    build:
+      context: ./src/web
+      dockerfile: Dockerfile
+      target: deps
+    
+    # Mount source code for hot reloading
+    volumes:
+      - ./src/web:/app
+      - /app/node_modules # Keep node_modules internal to the container
+      - /app/.next        # Keep build cache internal
+
+    # Run Next.js in development mode
+    command: npm run dev
+    
+    ports:
+      - "3000:3000"
+    
+    # Environment config
+    environment:
+      - NODE_ENV=development
+      - HOSTNAME=0.0.0.0 # Required for Next.js to be accessible outside container
