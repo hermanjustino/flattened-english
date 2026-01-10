@@ -14,13 +14,7 @@ import {
   Line
 } from 'recharts';
 import { 
-  Activity, 
-  Globe, 
-  Layers, 
-  ShieldAlert, 
-  ArrowRight,
-  GitBranch,
-  Scale
+  ArrowRight
 } from 'lucide-react';
 
 const mockData = [
@@ -60,6 +54,9 @@ export default function LandingPage() {
           <p className="text-2xl md:text-3xl text-[#86868b] font-light leading-relaxed max-w-3xl">
             Measuring linguistic labor in AI-mediated knowledge work.
           </p>
+          <p className="text-xl md:text-2xl text-[#86868b] font-light mt-4">
+            By Herman Justino
+          </p>
         </motion.div>
       </section>
 
@@ -79,7 +76,6 @@ export default function LandingPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
               <div className="space-y-4">
-                <Globe className="w-8 h-8 text-blue-500" />
                 <h3 className="text-lg font-semibold">Global Labor Currency</h3>
                 <p className="text-[#86868b] leading-relaxed">
                   This is not about race alone, it is about whose English is treated as default 
@@ -87,7 +83,6 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="space-y-4">
-                <Scale className="w-8 h-8 text-purple-500" />
                 <h3 className="text-lg font-semibold">Asymmetric Compliance</h3>
                 <p className="text-[#86868b] leading-relaxed">
                   LLMs impose asymmetric compliance costs, shifting the burden of standardization 
@@ -107,7 +102,6 @@ export default function LandingPage() {
           >
             <div className="bg-white/50 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
-                <GitBranch className="text-gray-400" size={20} />
                 <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Evolution</span>
               </div>
               <p className="text-gray-600 mb-6">
@@ -134,7 +128,6 @@ export default function LandingPage() {
           >
             <div>
               <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3">
-                <Activity className="text-orange-500" />
                 Research Question
               </h2>
               <p className="text-2xl font-light leading-relaxed text-gray-800">
@@ -176,7 +169,6 @@ export default function LandingPage() {
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3">
-                <Layers className="text-blue-500" />
                 Core Contribution
               </h2>
               <p className="text-xl font-light leading-relaxed text-gray-600 mb-6">
@@ -185,11 +177,9 @@ export default function LandingPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <ShieldAlert className="w-5 h-5 text-gray-400 mt-1" />
                   <span className="text-gray-600">Shifting the burden of standardization onto global and racialized workers.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Activity className="w-5 h-5 text-gray-400 mt-1" />
                   <span className="text-gray-600">Measuring the "compliance cost" of non-standard English in a post-LLM ecosystem.</span>
                 </li>
               </ul>

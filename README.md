@@ -43,3 +43,10 @@ This project follows the **Professional Cloud Architect (PCA)** domain standards
 ├── archive/           # Legacy v1 application
 └── README.md
 ```
+
+## Running
+
+docker compose up --build -d
+
+docker compose ps && docker compose logs --tail=20 web
+
