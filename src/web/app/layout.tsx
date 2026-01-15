@@ -34,9 +34,9 @@ export default function RootLayout({
               © 2026 Flattened English. Built by Herman Justino.
             </div>
             <div className="flex gap-8 text-sm text-[#86868b]">
-              <a href="#" className="hover:text-blue-600 transition-colors">Twitter</a>
-              <a href="#" className="hover:text-blue-600 transition-colors">GitHub</a>
-              <a href="#" className="hover:text-blue-600 transition-colors">LinkedIn</a>
+              <a href="https://www.hermanjustino.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Website</a>
+              <a href="https://github.com/hermanjustino/flattened-english" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/hermanjustino/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">LinkedIn</a>
             </div>
           </div>
         </footer>

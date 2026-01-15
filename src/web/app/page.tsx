@@ -66,7 +66,7 @@ export default function LandingPage() {
             Flattened English
           </h1>
           <p className="text-2xl md:text-3xl text-[#86868b] font-light leading-relaxed max-w-3xl">
-            Measuring linguistic labor in AI-mediated knowledge work.
+            An automated platform measuring linguistic labor in AI-mediated knowledge work.
           </p>
           <div className="flex gap-6 mt-8">
             <Link href="/abstract" className="bg-[#0071e3] text-white px-8 py-3 rounded-full font-medium hover:bg-[#0077ed] transition-colors flex items-center gap-2">
@@ -124,15 +124,15 @@ export default function LandingPage() {
           >
             <div className="bg-white/50 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Evolution</span>
+                <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">Automated Platform</span>
               </div>
-              <p className="text-gray-600 mb-6">
-                Building on last year's <strong>AI Journalist</strong> project, this research pivots from
-                content generation to <em>content auditing</em>. We are no longer just asking what AI can write,
-                but how it shapes the language of those who use it.
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                This project is evolving into an <strong>automated tracking platform</strong>. By continuously monitoring
+                <em> search trends</em> and <em>social media</em> algorithms, we quantify the real-time pressure of
+                linguistic standardization across the digital ecosystem.
               </p>
               <div className="flex items-center text-blue-600 font-medium cursor-pointer hover:underline">
-                View Legacy Archive <ArrowRight size={16} className="ml-2" />
+                View System Architecture <ArrowRight size={16} className="ml-2" />
               </div>
             </div>
           </motion.div>

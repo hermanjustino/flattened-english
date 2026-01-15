@@ -35,37 +35,48 @@ export default function AbstractContent() {
                         Flattened English: Measuring Linguistic Labour in AI-Mediated Knowledge Work
                     </h1>
 
-                    <div className="space-y-8 text-xl md:text-2xl text-[#1d1d1f] font-light leading-relaxed">
-                        <p>
-                            As large language models (LLMs) and AI-mediated platforms become embedded in professional, academic, and creative workflows, they increasingly function
-                            as gatekeepers of linguistic legitimacy. While prior research has documented cultural bias in LLM outputs, less attention has been paid to the labour
-                            required of users to make their language legible to these systems. This project argues that LLMs and adjacent AI-mediated platforms impose a flattened
-                            form of “prestige English” that operates as a default labor currency, generating asymmetric compliance costs for users who employ non-standard or
-                            regionally grounded English varieties.
-                        </p>
-
-                        <p>
-                            Rather than framing linguistic preference solely through identity, this study examines how uneven linguistic labor emerges across global knowledge
-                            workers operating in a post-LLM linguistic ecosystem. An ecosystem in which human expression is increasingly shaped, corrected, and standardized through
-                            algorithmic interaction. In this context, language becomes a site of invisible work: users must repeatedly adjust syntax, vocabulary, and discourse style
-                            to satisfy algorithmic norms in order to access information, visibility, or professional legitimacy.
-                        </p>
-
-                        <div className="pt-12 mt-12 border-t border-gray-100">
-                            <h2 className="text-lg font-semibold uppercase tracking-wider text-gray-400 mb-6">Central Research Question</h2>
-                            <p className="text-2xl md:text-3xl font-medium text-[#1d1d1f]">
-                                How do AI-mediated platforms impose uneven linguistic labour on users writing in non-standard English varieties in digital work contexts?
+                    <div className="space-y-12 text-xl md:text-2xl text-[#1d1d1f] font-light leading-relaxed">
+                        <div>
+                            <h2 className="text-lg font-semibold uppercase tracking-wider text-gray-400 mb-4">Problem Statement</h2>
+                            <p>
+                                As large language models (LLMs) and AI-mediated platforms become embedded in professional and academic workflows, they increasingly function as gatekeepers of linguistic legitimacy. This project argues that these platforms impose a flattened "prestige English" that operates as a default labor currency, generating asymmetric compliance costs for users of non-standard or regionally grounded varieties.
                             </p>
                         </div>
 
-                        <p>
-                            Methodologically, the project frames linguistic labour as measurable friction: semantic loss, reformulation distance, and correction frequency. These metrics are
-                            analysed across platforms to identify where and how standardization pressure is most acute. This project does not aim to authenticate speaker identity, the study
-                            focuses on linguistic features circulating in digital labour environments, acknowledging the already AI-saturated conditions under which contemporary language is produced.
-                            By linking AI language systems to search engines and social platforms, this research extends debates on digital labor beyond data labeling and content moderation
-                            to include linguistic standardization as a form of invisible work. The findings contribute a technical framework for auditing cultural alignment and labor asymmetries
-                            in AI-mediated knowledge economies.
-                        </p>
+                        <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                            <h2 className="text-lg font-semibold uppercase tracking-wider text-blue-600 mb-4">Central Research Question</h2>
+                            <p className="text-2xl md:text-3xl font-medium text-[#1d1d1f] italic">
+                                "How do AI-mediated platforms impose uneven linguistic labour on users writing in non-standard English varieties in digital work contexts?"
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 className="text-lg font-semibold uppercase tracking-wider text-gray-400 mb-4">Methodology: Measuring Algorithmic Friction</h2>
+                            <p className="mb-6">
+                                This study moves beyond identity-based analysis to examine uneven labor across global workers in an AI-saturated ecosystem. The project develops a quantitative audit across search engines, social media, and LLMs, framing linguistic labour through three measurable metrics:
+                            </p>
+                            <ul className="space-y-4 text-lg md:text-xl">
+                                <li className="flex items-start gap-3">
+                                    <span className="font-semibold text-[#1d1d1f]">Semantic Loss:</span>
+                                    <span className="text-gray-600">Propositional degradation during algorithmic "standardization."</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="font-semibold text-[#1d1d1f]">Reformulation Distance:</span>
+                                    <span className="text-gray-600">The mechanical work required to move from natural voice to "legitimate" output.</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="font-semibold text-[#1d1d1f]">Correction Frequency:</span>
+                                    <span className="text-gray-600">The iterative burden of adjusting syntax to satisfy algorithmic norms.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 className="text-lg font-semibold uppercase tracking-wider text-gray-400 mb-4">Contribution to Digital Labor Theory</h2>
+                            <p>
+                                By linking AI language systems to broader platform infrastructures, this research extends the definition of digital labor to include linguistic standardization as invisible work. The findings contribute a technical framework for auditing cultural alignment and labor asymmetries, offering a site of resistance against the algorithmic flattening of human expression in the global knowledge economy.
+                            </p>
+                        </div>
                     </div>
                 </motion.div>
             </section>
