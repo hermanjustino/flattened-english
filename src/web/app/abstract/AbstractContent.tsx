@@ -16,6 +16,7 @@ export default function AbstractContent() {
                         Back to Overview
                     </Link>
                     <div className="flex gap-8">
+                        <Link href="/about" className="text-sm font-medium hover:text-blue-600 transition-colors">About</Link>
                         <Link href="/abstract" className="text-sm font-medium text-blue-600">Abstract</Link>
                         <Link href="/methodology" className="text-sm font-medium hover:text-blue-600 transition-colors">Methodology</Link>
                     </div>
@@ -45,7 +46,7 @@ export default function AbstractContent() {
 
                         <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
                             <h2 className="text-lg font-semibold uppercase tracking-wider text-blue-600 mb-4">Central Research Question</h2>
-                            <p className="text-2xl md:text-3xl font-medium text-[#1d1d1f] italic">
+                            <p className="text-2xl md:text-3xl font-medium text-[#1d1d1f]">
                                 "How do AI-mediated platforms impose uneven linguistic labour on users writing in non-standard English varieties in digital work contexts?"
                             </p>
                         </div>

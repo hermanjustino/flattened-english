@@ -16,6 +16,7 @@ export default function MethodologyContent() {
                         Back to Overview
                     </Link>
                     <div className="flex gap-8">
+                        <Link href="/about" className="text-sm font-medium hover:text-blue-600 transition-colors">About</Link>
                         <Link href="/abstract" className="text-sm font-medium hover:text-blue-600 transition-colors">Abstract</Link>
                         <Link href="/methodology" className="text-sm font-medium text-blue-600">Methodology</Link>
                     </div>
