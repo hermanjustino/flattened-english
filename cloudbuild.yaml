@@ -5,14 +5,14 @@ steps:
     args: 
       - 'build'
       - '-t'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english-repo/web:$COMMIT_SHA'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english/web:$COMMIT_SHA'
       - '.'
 
   # Push the image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: 
       - 'push'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english-repo/web:$COMMIT_SHA'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english/web:$COMMIT_SHA'
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -22,7 +22,7 @@ steps:
       - 'deploy'
       - 'flattened-english-web'
       - '--image'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english-repo/web:$COMMIT_SHA'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english/web:$COMMIT_SHA'
       - '--region'
       - 'us-central1'
       - '--platform'
@@ -31,7 +31,7 @@ steps:
 
 # Store images in Google Artifact Registry
 images:
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english-repo/web:$COMMIT_SHA'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english/web:$COMMIT_SHA'
 
 options:
   logging: CLOUD_LOGGING_ONLY
