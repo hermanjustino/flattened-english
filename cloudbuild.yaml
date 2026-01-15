@@ -32,3 +32,6 @@ steps:
 # Store images in Google Artifact Registry
 images:
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/flattened-english-repo/web:$COMMIT_SHA'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
